@@ -20,6 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)shared;
 - (void)setColor:(UIColor *)color;
+- (void)setRedWithInt:(NSInteger)red;
+- (void)setGreenWithInt:(NSInteger)green;
+- (void)setBlueWithInt:(NSInteger)blue;
 - (void)setAlpha:(CGFloat)alpha;
 @end
 

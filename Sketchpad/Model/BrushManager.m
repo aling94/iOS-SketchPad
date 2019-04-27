@@ -34,8 +34,24 @@
     }
 }
 
+- (CGFloat)scaleAndBoundInt:(NSInteger)val {
+    return fmin(fmax(0.0, val / 255.0), 1.0);
+}
+
+- (void)setRedWithInt:(NSInteger)red {
+    self.red = [self scaleAndBoundInt:red];
+}
+
+- (void)setGreenWithInt:(NSInteger)green {
+    self.green = [self scaleAndBoundInt:green];
+}
+
+- (void)setBlueWithInt:(NSInteger)blue {
+    self.blue = [self scaleAndBoundInt:blue];
+}
+
 - (void)setAlpha:(CGFloat)alpha {
-    self.opacity = (0 <= alpha && alpha <= 1)? alpha : 1;
+    self.opacity = fmin(fmax(0.0, alpha), 1.0);
 }
 @end
 
