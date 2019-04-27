@@ -62,7 +62,6 @@
 - (IBAction)pencilTapped:(UIButton *)sender {
     NSInteger tag = [sender tag];
     UIColor *color = [ColorPickerView colors][tag];
-    NSLog(@"%@", color);
     if([self delegate]) [[self delegate] didSelectColor:color];
 }
 
