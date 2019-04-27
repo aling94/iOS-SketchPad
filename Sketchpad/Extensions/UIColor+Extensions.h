@@ -11,11 +11,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UIColor (Extensions)
-- (instancetype)initWithRGB:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue;
-- (instancetype)initWithRGB:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue alpha:(CGFloat)a;
-
-+ (instancetype) lightGreenColor;
-+ (instancetype) lightBlueColor;
+- (instancetype)initWithRGB:(NSInteger)red green:(NSInteger)green blue:(NSInteger)blue;
+- (instancetype)initWithRGB:(NSInteger)red green:(NSInteger)green blue:(NSInteger)blue alpha:(CGFloat)a;
++ (instancetype)darkGreenColor;
++ (instancetype)lightGreenColor;
++ (instancetype)lightBlueColor;
 @end
 
 NS_ASSUME_NONNULL_END
