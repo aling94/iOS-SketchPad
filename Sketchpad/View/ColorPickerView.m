@@ -41,7 +41,7 @@
                    UIColor.grayColor,
                    UIColor.brownColor,
                    UIColor.redColor,
-                   UIColor.greenColor,
+                   UIColor.darkGreenColor,
                    UIColor.blueColor,
                    UIColor.orangeColor,
                    UIColor.yellowColor,
