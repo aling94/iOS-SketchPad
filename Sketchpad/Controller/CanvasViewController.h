@@ -10,7 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CanvasViewController : UIViewController
+@interface CanvasViewController : UIViewController {
+    
+}
 
 @end
 
