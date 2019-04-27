@@ -57,6 +57,7 @@
     [self addSubview:[self view]];
     self.bounds = self.content.frame;
     self.view.frame = self.bounds;
+    self.view.clipsToBounds = YES;
 }
 
 - (IBAction)pencilTapped:(UIButton *)sender {
