@@ -50,6 +50,8 @@
     NSString *title = (error)? @"Error" : @"Success";
     NSString *msg = (error)? @"Image could not be saved. Please try again." : @"Image was successfully saved.";
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:msg preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                            handler:^(UIAlertAction * action) {}]];
     [self presentViewController:alert animated:YES completion:nil];
 }
 
