@@ -25,12 +25,26 @@
                                     <constraint firstAttribute="height" constant="82" id="Lu6-P4-YpP"/>
                                 </constraints>
                             </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pz2-yz-olE" userLabel="Main Canvas">
+                                <rect key="frame" x="0.0" y="64" width="375" height="472"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Y3b-LI-vex" userLabel="Temp Canvas">
+                                <rect key="frame" x="0.0" y="64" width="375" height="472"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="pHm-Td-0am" firstAttribute="top" secondItem="pz2-yz-olE" secondAttribute="bottom" id="5HM-uO-uBr"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="pHm-Td-0am" secondAttribute="bottom" id="8Wj-VT-CpZ"/>
+                            <constraint firstItem="pHm-Td-0am" firstAttribute="top" secondItem="Y3b-LI-vex" secondAttribute="bottom" id="AAX-d3-qnY"/>
+                            <constraint firstItem="Y3b-LI-vex" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Ack-gh-s2P"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pHm-Td-0am" secondAttribute="trailing" id="EAR-Fr-Nau"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pz2-yz-olE" secondAttribute="trailing" id="G8u-Nt-UXb"/>
+                            <constraint firstItem="pz2-yz-olE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="PK9-tJ-7r6"/>
+                            <constraint firstItem="pz2-yz-olE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Q1w-ww-IRI"/>
                             <constraint firstItem="pHm-Td-0am" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="SUR-Vc-tgA"/>
+                            <constraint firstItem="Y3b-LI-vex" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="rIJ-WJ-ndA"/>
+                            <constraint firstItem="Y3b-LI-vex" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="wEu-5M-Me2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -40,6 +54,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="colorPicker" destination="pHm-Td-0am" id="ip5-6Q-uBh"/>
+                        <outlet property="mainCanvas" destination="pz2-yz-olE" id="vsz-k1-R5n"/>
+                        <outlet property="tempCanvas" destination="Y3b-LI-vex" id="fD4-vy-xBd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
