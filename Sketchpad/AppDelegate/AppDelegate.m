@@ -17,12 +17,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    BrushManager *bm = [BrushManager shared];
-    [bm setRed:0];
-    [bm setGreen:0];
-    [bm setBlue:0];
-    [bm setBrush:5];
-    [bm setOpacity:1];
+    [BrushManager.shared setColor:UIColor.blackColor];
+    [BrushManager.shared setAlpha:1];
+    [BrushManager.shared setBrush:5];
     return YES;
 }
 
