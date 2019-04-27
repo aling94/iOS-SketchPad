@@ -16,6 +16,13 @@
     return self = [self initWithRed:r green:g blue:b alpha:1];
 }
 
+- (instancetype)initWithRGB:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue alpha:(CGFloat)a {
+    CGFloat r = red / 255.0;
+    CGFloat g = green / 255.0;
+    CGFloat b = blue / 255.0;
+    return self = [self initWithRed:r green:g blue:b alpha:a];
+}
+
 + (instancetype)lightGreenColor {
     return [self.alloc initWithRGB:102 green:255 blue:0];
 }
