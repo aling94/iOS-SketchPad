@@ -10,11 +10,10 @@
 
 @implementation UIColor (Extensions)
 - (instancetype)initWithRGB:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue {
-    
     CGFloat r = red / 255.0;
     CGFloat g = green / 255.0;
     CGFloat b = blue / 255.0;
-    return [self initWithRGB:r green:g blue:b];
+    return self = [self initWithRed:r green:g blue:b alpha:1];
 }
 
 + (instancetype)lightGreenColor {
