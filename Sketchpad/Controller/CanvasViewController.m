@@ -10,21 +10,18 @@
 #import "ColorPickerView.h"
 #import "ColorPickerDelegate.h"
 #import "UIColor+Extensions.h"
+#import "BrushManager.h"
 
 @interface CanvasViewController () <ColorPickerDelegate> {
     CGPoint lastPoint;
-    CGFloat red;
-    CGFloat green;
-    CGFloat blue;
-    CGFloat brush;
-    CGFloat opacity;
+    CGSize canvasSize;
+    BrushManager *bm;
+    BOOL swiped;
 }
 
-
 @property (weak, nonatomic) IBOutlet ColorPickerView *colorPicker;
-
-- (void)setColor:(UIColor *)color;
-
+@property (weak, nonatomic) IBOutlet UIImageView *mainCanvas;
+@property (weak, nonatomic) IBOutlet UIImageView *tempCanvas;
 
 @end
 
@@ -33,28 +30,74 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.colorPicker setDelegate:self];
+    canvasSize = self.mainCanvas.frame.size;
+    bm = [BrushManager shared];
+    bm.opacity = 1;
 }
 
-- (void)setColor:(UIColor *)color {
-    CGColorRef cgColor = [color CGColor];
-    NSInteger numComponents = CGColorGetNumberOfComponents(cgColor);
-    const CGFloat *comps = CGColorGetComponents(cgColor);
-    if (numComponents == 4) {
-        red = comps[0];
-        green = comps[1];
-        blue = comps[2];
-        NSLog(@"%f %f %f", comps[0], comps[1], comps[2]);
-    } else {
-        NSLog(@"%f %f", comps[0], comps[1]);
-        red = green = blue = comps[0];
-    }
-}
 
 - (void)didSelectColor:(nonnull UIColor *)color {
-    [self setColor:color];
+    [bm setColor:color];
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    swiped = NO;
+    UITouch *touch = [touches anyObject];
+    lastPoint = [touch locationInView:self.tempCanvas];
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+    swiped = YES;
+    UITouch *touch = [touches anyObject];
+    CGPoint currentPoint = [touch locationInView:self.tempCanvas];
     
+    [self prepareToDraw:1.0];
+    CGContextSetBlendMode(UIGraphicsGetCurrentContext(),kCGBlendModeNormal);
+    [self drawLine:lastPoint end:currentPoint];
+    [self.tempCanvas setAlpha: bm.opacity];
+    [self endDrawing];
+    
+    lastPoint = currentPoint;
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    if (!swiped) {
+        [self prepareToDraw:bm.opacity];
+        [self drawLine:lastPoint end:lastPoint];
+        CGContextFlush(UIGraphicsGetCurrentContext());
+        [self endDrawing];
+    }
+    [self transferToMainCanvas];
     
 }
 
+- (void)prepareToDraw:(CGFloat)alpha {
+    UIGraphicsBeginImageContext(canvasSize);
+    [self.tempCanvas.image drawInRect:CGRectMake(0, 0, canvasSize.width, canvasSize.height)];
+    CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
+    CGContextSetLineWidth(UIGraphicsGetCurrentContext(), bm.brush);
+    CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), bm.red, bm.green, bm.blue, alpha);
+}
+
+- (void)drawLine:(CGPoint)start end:(CGPoint)end {
+    CGContextMoveToPoint(UIGraphicsGetCurrentContext(), start.x, start.y);
+    CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), end.x, end.y);
+    CGContextStrokePath(UIGraphicsGetCurrentContext());
+}
+
+- (void)endDrawing {
+    self.tempCanvas.image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+}
+
+- (void)transferToMainCanvas {
+    UIGraphicsBeginImageContext(canvasSize);
+    [self.mainCanvas.image drawInRect:CGRectMake(0, 0, canvasSize.width, canvasSize.height) blendMode:kCGBlendModeNormal alpha:1.0];
+    [self.tempCanvas.image drawInRect:CGRectMake(0, 0, canvasSize.width, canvasSize.height) blendMode:kCGBlendModeNormal alpha:bm.opacity];
+    self.mainCanvas.image = UIGraphicsGetImageFromCurrentImageContext();
+    self.tempCanvas.image = nil;
+    UIGraphicsEndImageContext();
+}
 
 @end
