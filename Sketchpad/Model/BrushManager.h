@@ -19,7 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (assign, nonatomic) CGFloat opacity;
 
 + (instancetype)shared;
-
+- (void)setColor:(UIColor *)color;
+- (void)setAlpha:(CGFloat)alpha;
 @end
 
 NS_ASSUME_NONNULL_END

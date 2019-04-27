@@ -18,4 +18,24 @@
     });
     return _shared;
 }
+
+- (void)setColor:(UIColor *)color {
+    CGColorRef cgColor = [color CGColor];
+    NSInteger numComponents = CGColorGetNumberOfComponents(cgColor);
+    const CGFloat *comps = CGColorGetComponents(cgColor);
+    if (numComponents == 4) {
+        self.red = comps[0];
+        self.green = comps[1];
+        self.blue = comps[2];
+        NSLog(@"%f %f %f", comps[0], comps[1], comps[2]);
+    } else if (numComponents == 2) {
+        NSLog(@"%f %f", comps[0], comps[1]);
+        self.red = self.green = self.blue = comps[0];
+    }
+}
+
+- (void)setAlpha:(CGFloat)alpha {
+    self.opacity = (0 <= alpha && alpha <= 1)? alpha : 1;
+}
 @end
+
