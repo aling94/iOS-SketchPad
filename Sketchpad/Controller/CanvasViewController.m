@@ -35,10 +35,25 @@
     bm.opacity = 1;
 }
 
-
-- (void)didSelectColor:(nonnull UIColor *)color {
-    [bm setColor:color];
+- (IBAction)resetTapped:(id)sender {
+    [self.mainCanvas setImage:nil];
 }
+
+- (IBAction)saveTapped:(id)sender {
+    if (!self.mainCanvas.image) return;
+    UIImage *saveImage = [self getDrawing];
+    UIImageWriteToSavedPhotosAlbum(saveImage, self,@selector(image:didFinishSavingWithError:contextInfo:), nil);
+}
+
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
+{
+    NSString *title = (error)? @"Error" : @"Success";
+    NSString *msg = (error)? @"Image could not be saved. Please try again." : @"Image was successfully saved.";
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:msg preferredStyle:UIAlertControllerStyleAlert];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+#pragma MARK: - Drawing
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     swiped = NO;
@@ -72,6 +87,8 @@
     
 }
 
+#pragma MARK: - Drawing helpers
+
 - (void)prepareToDraw:(CGFloat)alpha {
     UIGraphicsBeginImageContext(canvasSize);
     [self.tempCanvas.image drawInRect:CGRectMake(0, 0, canvasSize.width, canvasSize.height)];
@@ -98,6 +115,20 @@
     self.mainCanvas.image = UIGraphicsGetImageFromCurrentImageContext();
     self.tempCanvas.image = nil;
     UIGraphicsEndImageContext();
+}
+
+- (UIImage *)getDrawing {
+    UIGraphicsBeginImageContextWithOptions(canvasSize, NO, 0.0);
+    [self.mainCanvas.image drawInRect:CGRectMake(0, 0, canvasSize.width, canvasSize.height)];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
+
+#pragma MARK: - ColorPickerDelegate
+
+- (void)didSelectColor:(nonnull UIColor *)color {
+    [bm setColor:color];
 }
 
 @end
