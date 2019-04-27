@@ -33,11 +33,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.colorPicker setDelegate:self];
-    red = 0;
-    green = 0;
-    blue = 0;
-    brush = 5;
-    opacity = 1;
 }
 
 - (void)setColor:(UIColor *)color {
@@ -57,6 +52,8 @@
 
 - (void)didSelectColor:(nonnull UIColor *)color {
     [self setColor:color];
+    
+    
 }
 
 

@@ -17,6 +17,7 @@
 		E12021432273B3CB00DC71A9 /* ColorPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E12021422273B3CB00DC71A9 /* ColorPickerView.m */; };
 		E12021472273E05E00DC71A9 /* UIColor+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E12021462273E05E00DC71A9 /* UIColor+Extensions.m */; };
 		E120214B2273F4DC00DC71A9 /* CanvasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E120214A2273F4DC00DC71A9 /* CanvasViewController.m */; };
+		E120214F2274054300DC71A9 /* BrushManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E120214E2274054300DC71A9 /* BrushManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,8 @@
 		E12021482273EA0700DC71A9 /* ColorPickerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorPickerDelegate.h; sourceTree = "<group>"; };
 		E12021492273F4DC00DC71A9 /* CanvasViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CanvasViewController.h; sourceTree = "<group>"; };
 		E120214A2273F4DC00DC71A9 /* CanvasViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CanvasViewController.m; sourceTree = "<group>"; };
+		E120214D2274054300DC71A9 /* BrushManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BrushManager.h; sourceTree = "<group>"; };
+		E120214E2274054300DC71A9 /* BrushManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrushManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +77,7 @@
 				E105744A2273AAAE0044E686 /* main.m */,
 				E10574512273ABCB0044E686 /* AppDelegate */,
 				E10574522273ABD70044E686 /* Storyboard */,
+				E120214C2274051C00DC71A9 /* Model */,
 				E10574532273AED50044E686 /* View */,
 				E10574542273AEDC0044E686 /* Controller */,
 				E105743E2273AAAD0044E686 /* ViewController.h */,
@@ -129,6 +133,15 @@
 				E12021462273E05E00DC71A9 /* UIColor+Extensions.m */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E120214C2274051C00DC71A9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E120214D2274054300DC71A9 /* BrushManager.h */,
+				E120214E2274054300DC71A9 /* BrushManager.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E120214F2274054300DC71A9 /* BrushManager.m in Sources */,
 				E12021432273B3CB00DC71A9 /* ColorPickerView.m in Sources */,
 				E10574402273AAAD0044E686 /* ViewController.m in Sources */,
 				E120214B2273F4DC00DC71A9 /* CanvasViewController.m in Sources */,
