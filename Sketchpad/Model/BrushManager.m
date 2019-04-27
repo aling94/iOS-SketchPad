@@ -27,9 +27,7 @@
         self.red = comps[0];
         self.green = comps[1];
         self.blue = comps[2];
-        NSLog(@"%f %f %f", comps[0], comps[1], comps[2]);
     } else if (numComponents == 2) {
-        NSLog(@"%f %f", comps[0], comps[1]);
         self.red = self.green = self.blue = comps[0];
     }
 }

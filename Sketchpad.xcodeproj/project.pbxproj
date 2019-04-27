@@ -116,13 +116,8 @@
 		E10574532273AED50044E686 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E120213C2273B2D400DC71A9 /* ColorPickerView.xib */,
-				E12021412273B3CB00DC71A9 /* ColorPickerView.h */,
-				E12021422273B3CB00DC71A9 /* ColorPickerView.m */,
-				E12021482273EA0700DC71A9 /* ColorPickerDelegate.h */,
-				E17136CA2274C7C5005A9A3A /* SliderView.h */,
-				E17136CB2274C7C5005A9A3A /* SliderView.m */,
-				E17136CD2274D1BA005A9A3A /* SliderViewDelegate.h */,
+				E17136CE2274F5F0005A9A3A /* ColorPicker */,
+				E17136CF2274F5FB005A9A3A /* SliderView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -154,6 +149,27 @@
 				E120214E2274054300DC71A9 /* BrushManager.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		E17136CE2274F5F0005A9A3A /* ColorPicker */ = {
+			isa = PBXGroup;
+			children = (
+				E120213C2273B2D400DC71A9 /* ColorPickerView.xib */,
+				E12021412273B3CB00DC71A9 /* ColorPickerView.h */,
+				E12021422273B3CB00DC71A9 /* ColorPickerView.m */,
+				E12021482273EA0700DC71A9 /* ColorPickerDelegate.h */,
+			);
+			path = ColorPicker;
+			sourceTree = "<group>";
+		};
+		E17136CF2274F5FB005A9A3A /* SliderView */ = {
+			isa = PBXGroup;
+			children = (
+				E17136CA2274C7C5005A9A3A /* SliderView.h */,
+				E17136CB2274C7C5005A9A3A /* SliderView.m */,
+				E17136CD2274D1BA005A9A3A /* SliderViewDelegate.h */,
+			);
+			path = SliderView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
