@@ -98,14 +98,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dPy-ns-7Bf">
-                                <rect key="frame" x="100" y="40" width="175" height="175"/>
+                                <rect key="frame" x="127.5" y="98" width="120" height="120"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="175" id="QcE-6c-dgJ"/>
-                                    <constraint firstAttribute="height" constant="175" id="xT7-xI-lwt"/>
+                                    <constraint firstAttribute="width" constant="120" id="QcE-6c-dgJ"/>
+                                    <constraint firstAttribute="height" constant="120" id="xT7-xI-lwt"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ofh-qs-FHx" customClass="SliderView">
-                                <rect key="frame" x="49" y="255" width="277" height="30"/>
+                                <rect key="frame" x="49" y="268" width="277" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKq-j2-KbJ">
                                         <rect key="frame" x="228.5" y="4.5" width="48.5" height="21"/>
@@ -119,7 +119,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="bpT-Zq-By5">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="bpT-Zq-By5">
                                         <rect key="frame" x="56.5" y="0.0" width="164" height="31"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -149,7 +149,7 @@
                                 </connections>
                             </view>
                             <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R4n-tD-Bar" customClass="SliderView">
-                                <rect key="frame" x="33.5" y="325" width="308" height="30"/>
+                                <rect key="frame" x="33.5" y="338" width="308" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yZz-Ga-9Uq">
                                         <rect key="frame" x="244" y="4.5" width="64" height="21"/>
@@ -193,7 +193,7 @@
                                 </connections>
                             </view>
                             <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lNE-J1-g5f" customClass="SliderView">
-                                <rect key="frame" x="65.5" y="395" width="244" height="30"/>
+                                <rect key="frame" x="65.5" y="408" width="244" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="255" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i85-qg-2BU">
                                         <rect key="frame" x="212" y="4.5" width="32" height="21"/>
@@ -237,7 +237,7 @@
                                 </connections>
                             </view>
                             <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tv8-Wf-cxx" customClass="SliderView">
-                                <rect key="frame" x="47.5" y="465" width="280" height="30"/>
+                                <rect key="frame" x="47.5" y="478" width="280" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="255" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Dd-zb-MsA">
                                         <rect key="frame" x="230" y="4.5" width="50" height="21"/>
@@ -281,7 +281,7 @@
                                 </connections>
                             </view>
                             <view tag="4" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GWI-sw-sRu" customClass="SliderView">
-                                <rect key="frame" x="61" y="535" width="253" height="30"/>
+                                <rect key="frame" x="61" y="548" width="253" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="255" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJc-7J-leR">
                                         <rect key="frame" x="216.5" y="4.5" width="36.5" height="21"/>
@@ -330,12 +330,12 @@
                             <constraint firstItem="lNE-J1-g5f" firstAttribute="centerX" secondItem="Xml-oh-ldq" secondAttribute="centerX" id="1KA-Ip-dsS"/>
                             <constraint firstItem="GWI-sw-sRu" firstAttribute="centerX" secondItem="Xml-oh-ldq" secondAttribute="centerX" id="Cou-Lq-JGd"/>
                             <constraint firstItem="dPy-ns-7Bf" firstAttribute="centerX" secondItem="Xml-oh-ldq" secondAttribute="centerX" id="GrT-T3-rgV"/>
+                            <constraint firstItem="ofh-qs-FHx" firstAttribute="top" secondItem="dPy-ns-7Bf" secondAttribute="bottom" constant="50" id="MYx-jb-8KS"/>
                             <constraint firstItem="R4n-tD-Bar" firstAttribute="top" secondItem="ofh-qs-FHx" secondAttribute="bottom" constant="40" id="RG7-H2-I6C"/>
-                            <constraint firstItem="ofh-qs-FHx" firstAttribute="top" secondItem="dPy-ns-7Bf" secondAttribute="bottom" constant="40" id="SWk-9N-OSA"/>
                             <constraint firstItem="lNE-J1-g5f" firstAttribute="top" secondItem="R4n-tD-Bar" secondAttribute="bottom" constant="40" id="bPz-zx-E8a"/>
+                            <constraint firstItem="xRt-ax-N55" firstAttribute="bottom" secondItem="GWI-sw-sRu" secondAttribute="bottom" constant="40" id="ddv-qh-SOk"/>
                             <constraint firstItem="tv8-Wf-cxx" firstAttribute="centerX" secondItem="Xml-oh-ldq" secondAttribute="centerX" id="grn-0B-jfp"/>
                             <constraint firstItem="R4n-tD-Bar" firstAttribute="centerX" secondItem="Xml-oh-ldq" secondAttribute="centerX" id="h4h-Be-EOR"/>
-                            <constraint firstItem="dPy-ns-7Bf" firstAttribute="top" secondItem="xRt-ax-N55" secondAttribute="top" constant="20" id="jnK-fX-nT1"/>
                             <constraint firstItem="tv8-Wf-cxx" firstAttribute="top" secondItem="lNE-J1-g5f" secondAttribute="bottom" constant="40" id="pMx-aS-654"/>
                             <constraint firstItem="ofh-qs-FHx" firstAttribute="centerX" secondItem="Xml-oh-ldq" secondAttribute="centerX" id="tYg-Xy-3gv"/>
                             <constraint firstItem="GWI-sw-sRu" firstAttribute="top" secondItem="tv8-Wf-cxx" secondAttribute="bottom" constant="40" id="wHq-I2-AjK"/>
