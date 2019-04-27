@@ -8,14 +8,25 @@
 
 #import "ColorPickerView.h"
 
+@interface ColorPickerView()
+@property (weak, nonatomic) IBOutlet UIView *content;
+
+
+@end
+
+
 @implementation ColorPickerView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+
+
+-(void)awakeFromNib {
+    [super awakeFromNib];
+    CGRect rect = [self.content frame];
+    [self setFrame: rect];
 }
-*/
+
+- (IBAction)pencilTapped:(UIButton *)sender {
+    
+}
 
 @end
