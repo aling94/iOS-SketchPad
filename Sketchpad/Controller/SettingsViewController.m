@@ -82,7 +82,7 @@
     UIGraphicsBeginImageContext(previewSize);
     CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
     CGContextSetLineWidth(UIGraphicsGetCurrentContext(), bm.brush);
-    CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), bm.red, bm.green, bm.green, bm.opacity);
+    CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), bm.red, bm.green, bm.blue, bm.opacity);
     CGContextMoveToPoint(UIGraphicsGetCurrentContext(), x, y);
     CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), x, y);
     CGContextStrokePath(UIGraphicsGetCurrentContext());
