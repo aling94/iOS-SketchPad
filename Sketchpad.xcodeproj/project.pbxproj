@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		E105743D2273AAAD0044E686 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E105743C2273AAAD0044E686 /* AppDelegate.m */; };
-		E10574402273AAAD0044E686 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E105743F2273AAAD0044E686 /* ViewController.m */; };
 		E10574432273AAAD0044E686 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E10574412273AAAD0044E686 /* Main.storyboard */; };
 		E10574452273AAAE0044E686 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E10574442273AAAE0044E686 /* Assets.xcassets */; };
 		E10574482273AAAE0044E686 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E10574462273AAAE0044E686 /* LaunchScreen.storyboard */; };
@@ -26,8 +25,6 @@
 		E10574382273AAAD0044E686 /* Sketchpad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sketchpad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E105743B2273AAAD0044E686 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E105743C2273AAAD0044E686 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		E105743E2273AAAD0044E686 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		E105743F2273AAAD0044E686 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		E10574422273AAAD0044E686 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E10574442273AAAE0044E686 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E10574472273AAAE0044E686 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -80,15 +77,13 @@
 		E105743A2273AAAD0044E686 /* Sketchpad */ = {
 			isa = PBXGroup;
 			children = (
-				E12021442273E02500DC71A9 /* Extensions */,
 				E105744A2273AAAE0044E686 /* main.m */,
 				E10574512273ABCB0044E686 /* AppDelegate */,
 				E10574522273ABD70044E686 /* Storyboard */,
 				E120214C2274051C00DC71A9 /* Model */,
 				E10574532273AED50044E686 /* View */,
 				E10574542273AEDC0044E686 /* Controller */,
-				E105743E2273AAAD0044E686 /* ViewController.h */,
-				E105743F2273AAAD0044E686 /* ViewController.m */,
+				E12021442273E02500DC71A9 /* Extensions */,
 				E10574442273AAAE0044E686 /* Assets.xcassets */,
 				E10574492273AAAE0044E686 /* Info.plist */,
 			);
@@ -245,7 +240,6 @@
 			files = (
 				E120214F2274054300DC71A9 /* BrushManager.m in Sources */,
 				E12021432273B3CB00DC71A9 /* ColorPickerView.m in Sources */,
-				E10574402273AAAD0044E686 /* ViewController.m in Sources */,
 				E17136C92274B940005A9A3A /* SettingsViewController.m in Sources */,
 				E17136CC2274C7C5005A9A3A /* SliderView.m in Sources */,
 				E120214B2273F4DC00DC71A9 /* CanvasViewController.m in Sources */,
