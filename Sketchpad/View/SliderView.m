@@ -18,22 +18,17 @@
 
 @implementation SliderView
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    [self changeValueText:self.defaultValue];
-}
-
 - (IBAction)sliderChanged:(UISlider *)sender {
-    [self changeValueText:sender.value];
+    [self changeValue:sender.value];
     
     if (self.delegate)
-        [self.delegate sliderDidChange:sender.value];
+        [self.delegate sliderDidChange:self sliderValue:sender.value];
 }
 
-- (void)changeValueText:(float)value {
-    self.valueText.text = (self.slider.maximumValue == 1)?
-    [NSString stringWithFormat:@"%.2f", value] :
-    [NSString stringWithFormat:@"%d", (int)value];
+- (void)changeValue:(float)value {
+    [self.slider setValue:value];
+    self.valueText.text = (self.slider.maximumValue == 1)? [NSString stringWithFormat:@"%.2f", value] :
+        [NSString stringWithFormat:@"%d", (int)value];
 }
 
 

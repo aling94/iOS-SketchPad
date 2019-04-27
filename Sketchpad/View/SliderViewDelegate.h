@@ -6,12 +6,11 @@
 //  Copyright © 2019 iOSPlayground. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
+@class SliderView;
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol SliderViewDelegate <NSObject>
-- (void)sliderDidChange:(float)value;
+- (void)sliderDidChange:(SliderView *)slider sliderValue:(float)value;
 @end
 
 NS_ASSUME_NONNULL_END

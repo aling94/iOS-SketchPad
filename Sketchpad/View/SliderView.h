@@ -11,8 +11,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SliderView : UIView
-@property (assign, nonatomic) float defaultValue;
 @property(weak, nonatomic) id<SliderViewDelegate> delegate;
+
+- (void)changeValue:(float)value;
 @end
 
 NS_ASSUME_NONNULL_END
