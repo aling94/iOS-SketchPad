@@ -119,7 +119,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="bpT-Zq-By5">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="bpT-Zq-By5">
                                         <rect key="frame" x="56.5" y="0.0" width="164" height="31"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -148,7 +148,7 @@
                                     <outlet property="valueText" destination="fKq-j2-KbJ" id="13Y-Az-3Wd"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R4n-tD-Bar" customClass="SliderView">
+                            <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R4n-tD-Bar" customClass="SliderView">
                                 <rect key="frame" x="33.5" y="325" width="308" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yZz-Ga-9Uq">
@@ -192,7 +192,7 @@
                                     <outlet property="valueText" destination="yZz-Ga-9Uq" id="Kb9-ED-0zj"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lNE-J1-g5f" customClass="SliderView">
+                            <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lNE-J1-g5f" customClass="SliderView">
                                 <rect key="frame" x="65.5" y="395" width="244" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="255" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i85-qg-2BU">
@@ -236,7 +236,7 @@
                                     <outlet property="valueText" destination="i85-qg-2BU" id="qZv-Ef-SDp"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tv8-Wf-cxx" customClass="SliderView">
+                            <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tv8-Wf-cxx" customClass="SliderView">
                                 <rect key="frame" x="47.5" y="465" width="280" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="255" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Dd-zb-MsA">
@@ -280,7 +280,7 @@
                                     <outlet property="valueText" destination="1Dd-zb-MsA" id="RF8-LU-hOL"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GWI-sw-sRu" customClass="SliderView">
+                            <view tag="4" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GWI-sw-sRu" customClass="SliderView">
                                 <rect key="frame" x="61" y="535" width="253" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="255" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJc-7J-leR">
@@ -344,7 +344,12 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" id="jEV-LD-Loq"/>
                     <connections>
+                        <outlet property="alphaSlider" destination="R4n-tD-Bar" id="SgR-aT-ggw"/>
+                        <outlet property="blueSlider" destination="GWI-sw-sRu" id="SES-F5-HiG"/>
+                        <outlet property="brushSlider" destination="ofh-qs-FHx" id="T1k-lL-qdK"/>
+                        <outlet property="greenSlider" destination="tv8-Wf-cxx" id="tah-mf-3Ph"/>
                         <outlet property="preview" destination="dPy-ns-7Bf" id="gvX-mE-DPj"/>
+                        <outlet property="redSlider" destination="lNE-J1-g5f" id="sPO-F3-zqb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X6S-sm-ARS" userLabel="First Responder" sceneMemberID="firstResponder"/>
