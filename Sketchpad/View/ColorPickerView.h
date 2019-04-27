@@ -7,10 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ColorPickerDelegate.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ColorPickerView : UIView
+
+@property (weak, nonatomic) id<ColorPickerDelegate> delegate;
+
++ (NSArray<UIColor *> *) colors;
 
 @end
 

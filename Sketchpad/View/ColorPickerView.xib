@@ -13,15 +13,16 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ColorPickerView">
             <connections>
                 <outlet property="content" destination="ILT-vr-d5B" id="aB9-S6-Tyr"/>
+                <outlet property="view" destination="iN0-l3-epB" id="OGj-T2-nhV"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ColorPickerView">
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="427" height="112"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ILT-vr-d5B" userLabel="Content">
-                    <rect key="frame" x="30" y="0.0" width="367" height="82"/>
+                    <rect key="frame" x="30" y="30" width="367" height="82"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y7X-qD-C45">
                             <rect key="frame" x="5" y="0.0" width="27" height="166"/>
@@ -41,6 +42,9 @@
                                 <constraint firstAttribute="height" constant="166" id="lLs-7O-YTT"/>
                             </constraints>
                             <state key="normal" image="Grey"/>
+                            <connections>
+                                <action selector="pencilTapped:" destination="-1" eventType="touchUpInside" id="T4K-h8-9hR"/>
+                            </connections>
                         </button>
                         <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gzw-ca-dmQ">
                             <rect key="frame" x="69" y="0.0" width="27" height="166"/>
@@ -49,6 +53,9 @@
                                 <constraint firstAttribute="width" constant="27" id="wc3-ld-FsW"/>
                             </constraints>
                             <state key="normal" image="Brown"/>
+                            <connections>
+                                <action selector="pencilTapped:" destination="-1" eventType="touchUpInside" id="Pll-w2-SUK"/>
+                            </connections>
                         </button>
                         <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R06-VX-qOX">
                             <rect key="frame" x="229" y="0.0" width="27" height="166"/>
@@ -57,6 +64,9 @@
                                 <constraint firstAttribute="height" constant="166" id="I7p-gv-A8t"/>
                             </constraints>
                             <state key="normal" image="Yellow"/>
+                            <connections>
+                                <action selector="pencilTapped:" destination="-1" eventType="touchUpInside" id="2WD-Zc-omi"/>
+                            </connections>
                         </button>
                         <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4FJ-9z-xdr">
                             <rect key="frame" x="197" y="0.0" width="27" height="166"/>
@@ -65,6 +75,9 @@
                                 <constraint firstAttribute="width" constant="27" id="toK-sv-kr6"/>
                             </constraints>
                             <state key="normal" image="Orange"/>
+                            <connections>
+                                <action selector="pencilTapped:" destination="-1" eventType="touchUpInside" id="unE-0g-SdB"/>
+                            </connections>
                         </button>
                         <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="alT-EP-8DK">
                             <rect key="frame" x="101" y="0.0" width="27" height="166"/>
@@ -73,6 +86,9 @@
                                 <constraint firstAttribute="height" constant="166" id="qUl-ly-C8f"/>
                             </constraints>
                             <state key="normal" image="Red"/>
+                            <connections>
+                                <action selector="pencilTapped:" destination="-1" eventType="touchUpInside" id="Jue-3o-d4K"/>
+                            </connections>
                         </button>
                         <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CiY-6d-jJt">
                             <rect key="frame" x="133" y="0.0" width="27" height="166"/>
@@ -81,6 +97,9 @@
                                 <constraint firstAttribute="height" constant="166" id="wfy-Ru-Bda"/>
                             </constraints>
                             <state key="normal" image="Green"/>
+                            <connections>
+                                <action selector="pencilTapped:" destination="-1" eventType="touchUpInside" id="A1Y-0k-GT9"/>
+                            </connections>
                         </button>
                         <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XI1-lD-Lbn">
                             <rect key="frame" x="261" y="0.0" width="27" height="166"/>
@@ -89,6 +108,9 @@
                                 <constraint firstAttribute="width" constant="27" id="cE7-JX-W55"/>
                             </constraints>
                             <state key="normal" image="LightGreen"/>
+                            <connections>
+                                <action selector="pencilTapped:" destination="-1" eventType="touchUpInside" id="lhP-B8-2Ss"/>
+                            </connections>
                         </button>
                         <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qpo-Xm-uI6">
                             <rect key="frame" x="165" y="0.0" width="27" height="166"/>
@@ -97,6 +119,9 @@
                                 <constraint firstAttribute="height" constant="166" id="Cbt-3d-XOo"/>
                             </constraints>
                             <state key="normal" image="Blue"/>
+                            <connections>
+                                <action selector="pencilTapped:" destination="-1" eventType="touchUpInside" id="IRS-rf-EV9"/>
+                            </connections>
                         </button>
                         <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZSz-Im-jb9">
                             <rect key="frame" x="293" y="0.0" width="27" height="166"/>
@@ -105,6 +130,9 @@
                                 <constraint firstAttribute="width" constant="27" id="GVF-bx-yZE"/>
                             </constraints>
                             <state key="normal" image="LightBlue"/>
+                            <connections>
+                                <action selector="pencilTapped:" destination="-1" eventType="touchUpInside" id="k2E-ew-clW"/>
+                            </connections>
                         </button>
                         <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oPO-6g-VIe">
                             <rect key="frame" x="335" y="0.0" width="27" height="82"/>
@@ -112,9 +140,12 @@
                                 <constraint firstAttribute="height" constant="82" id="UZM-c0-FNn"/>
                             </constraints>
                             <state key="normal" image="Eraser"/>
+                            <connections>
+                                <action selector="pencilTapped:" destination="-1" eventType="touchUpInside" id="qy9-Ud-CH7"/>
+                            </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="Qpo-Xm-uI6" firstAttribute="leading" secondItem="CiY-6d-jJt" secondAttribute="trailing" constant="5" id="0hl-ho-hVD"/>
                         <constraint firstItem="R06-VX-qOX" firstAttribute="leading" secondItem="4FJ-9z-xdr" secondAttribute="trailing" constant="5" id="6oP-Ga-jJA"/>
@@ -148,7 +179,7 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="ILT-vr-d5B" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="5uq-QA-eai"/>
-                <constraint firstItem="ILT-vr-d5B" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="opg-61-LYk"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ILT-vr-d5B" secondAttribute="bottom" id="h7F-Zr-Gg8"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
