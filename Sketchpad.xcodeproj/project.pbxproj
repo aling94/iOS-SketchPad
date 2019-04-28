@@ -77,7 +77,6 @@
 				1B17AEA778E7D2E4AFABBC7F /* Pods-Sketchpad.debug.xcconfig */,
 				7520A89FBE6D694DF51F0A65 /* Pods-Sketchpad.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -490,6 +489,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4949F5FLDL;
 				INFOPLIST_FILE = Sketchpad/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -508,6 +508,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4949F5FLDL;
 				INFOPLIST_FILE = Sketchpad/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -11,6 +11,8 @@
 #import "ColorPickerDelegate.h"
 #import "UIColor+Extensions.h"
 #import "BrushManager.h"
+#import <Social/Social.h>
+#import <Accounts/Accounts.h>
 
 @interface CanvasViewController () <ColorPickerDelegate> {
     CGPoint lastPoint;
@@ -42,7 +44,18 @@
 - (IBAction)saveTapped:(id)sender {
     if (!self.mainCanvas.image) return;
     UIImage *saveImage = [self getDrawing];
-    UIImageWriteToSavedPhotosAlbum(saveImage, self,@selector(image:didFinishSavingWithError:contextInfo:), nil);
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Save to where?" message: @"Where would you like to save this?" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *toPhotos = [UIAlertAction actionWithTitle:@"Photo Library" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIImageWriteToSavedPhotosAlbum(saveImage, self,@selector(image:didFinishSavingWithError:contextInfo:), nil);
+    }];
+    UIAlertAction *toTwitter = [UIAlertAction actionWithTitle:@"Twitter" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self twitterUpload:saveImage];
+    }];
+    [alert addAction:toPhotos];
+    [alert addAction:toTwitter];
+    [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel
+                                            handler:^(UIAlertAction * action) {}]];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
@@ -53,6 +66,26 @@
     [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
                                             handler:^(UIAlertAction * action) {}]];
     [self presentViewController:alert animated:YES completion:nil];
+    
+}
+
+- (void)twitterUpload:(UIImage *)image {
+    SLComposeViewController *composer = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+    [composer setInitialText:@"Sketch"];
+    [composer addImage:image];
+    [composer setCompletionHandler:^(SLComposeViewControllerResult result) {
+        switch (result) {
+                case SLComposeViewControllerResultCancelled:
+                NSLog(@"Post Canceled");
+                break;
+                case SLComposeViewControllerResultDone:
+                NSLog(@"Post Sucessful");
+                break;
+            default:
+                break;
+        }
+    }];
+    [self presentViewController:composer animated:YES completion:nil];
 }
 
 #pragma MARK: - Drawing
