@@ -79,10 +79,10 @@
     [composer setCompletionHandler:^(SLComposeViewControllerResult result) {
         switch (result) {
                 case SLComposeViewControllerResultCancelled:
-                NSLog(@"Post Canceled");
+                [self showAlert:@"Error" message:@"Twitter app and a logged in account required to post to Twitter."];
                 break;
                 case SLComposeViewControllerResultDone:
-                NSLog(@"Post Sucessful");
+                [self showAlert:@"Success" message:@"Post successful."];
                 break;
             default:
                 break;
@@ -93,7 +93,7 @@
 
 - (void)sendMail:(UIImage *)image {
     if (![MFMailComposeViewController canSendMail]) {
-        [self showAlert:@"Error!" message:@"This device cannot send mail!"];
+        [self showAlert:@"Error" message:@"This device cannot send mail!"];
         return;
     }
     
