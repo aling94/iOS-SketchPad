@@ -13,8 +13,9 @@
 #import "BrushManager.h"
 #import <Social/Social.h>
 #import <Accounts/Accounts.h>
+#import <MessageUI/MessageUI.h>
 
-@interface CanvasViewController () <ColorPickerDelegate> {
+@interface CanvasViewController () <UINavigationControllerDelegate, MFMailComposeViewControllerDelegate, ColorPickerDelegate> {
     CGPoint lastPoint;
     CGSize canvasSize;
     BrushManager *bm;
@@ -51,8 +52,14 @@
     UIAlertAction *toTwitter = [UIAlertAction actionWithTitle:@"Twitter" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [self twitterUpload:saveImage];
     }];
+    
+    UIAlertAction *toMail = [UIAlertAction actionWithTitle:@"Email" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self sendMail:saveImage];
+    }];
+    
     [alert addAction:toPhotos];
     [alert addAction:toTwitter];
+    [alert addAction:toMail];
     [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel
                                             handler:^(UIAlertAction * action) {}]];
     [self presentViewController:alert animated:YES completion:nil];
@@ -62,11 +69,7 @@
 {
     NSString *title = (error)? @"Error" : @"Success";
     NSString *msg = (error)? @"Image could not be saved. Please try again." : @"Image was successfully saved.";
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:msg preferredStyle:UIAlertControllerStyleAlert];
-    [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
-                                            handler:^(UIAlertAction * action) {}]];
-    [self presentViewController:alert animated:YES completion:nil];
-    
+    [self showAlert:title message:msg];
 }
 
 - (void)twitterUpload:(UIImage *)image {
@@ -86,6 +89,20 @@
         }
     }];
     [self presentViewController:composer animated:YES completion:nil];
+}
+
+- (void)sendMail:(UIImage *)image {
+    if (![MFMailComposeViewController canSendMail]) {
+        [self showAlert:@"Error!" message:@"This device cannot send mail!"];
+        return;
+    }
+    
+    MFMailComposeViewController *mailVC = [[MFMailComposeViewController alloc] init];
+    [mailVC setMailComposeDelegate:self];
+    NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
+    [mailVC addAttachmentData:imageData mimeType:@"image/jpeg" fileName:@"sketch.jpeg"];
+    [mailVC setSubject:@"iOS-Sketchpad drawing"];
+    [self presentViewController:mailVC animated:YES completion:nil];
 }
 
 #pragma MARK: - Drawing
@@ -164,6 +181,24 @@
 
 - (void)didSelectColor:(nonnull UIColor *)color {
     [bm setColor:color];
+}
+
+#pragma MARK: - MFMailComposeViewControllerDelegate
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    switch (result) {
+        case MFMailComposeResultSent:
+            [self showAlert:@"Success" message:@"Message sent."];
+            break;
+        case MFMailComposeResultFailed:
+            [self showAlert:@"Error" message:@"An error occurred while composing the mail."];
+            break;
+        default:
+            break;
+    }
+    
+    [controller dismissViewControllerAnimated:YES completion:NULL];
 }
 
 @end
