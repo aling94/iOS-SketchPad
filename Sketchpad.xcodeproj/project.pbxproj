@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5EF3D3DDDB8CDC557C9F3BE5 /* libPods-Sketchpad.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 51B87D1C8C3D1DC4BC50B5E7 /* libPods-Sketchpad.a */; };
 		E105743D2273AAAD0044E686 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E105743C2273AAAD0044E686 /* AppDelegate.m */; };
 		E10574432273AAAD0044E686 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E10574412273AAAD0044E686 /* Main.storyboard */; };
 		E10574452273AAAE0044E686 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E10574442273AAAE0044E686 /* Assets.xcassets */; };
@@ -19,10 +20,13 @@
 		E120214F2274054300DC71A9 /* BrushManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E120214E2274054300DC71A9 /* BrushManager.m */; };
 		E17136C92274B940005A9A3A /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E17136C82274B940005A9A3A /* SettingsViewController.m */; };
 		E17136CC2274C7C5005A9A3A /* SliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E17136CB2274C7C5005A9A3A /* SliderView.m */; };
+		E1887D1422779BF500A438DA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1887D1322779BF400A438DA /* GoogleService-Info.plist */; };
 		E1FA86012277820E00E4B3C3 /* UIViewController+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E1FA86002277820E00E4B3C3 /* UIViewController+Extensions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		09E6B8C3BBE6F2D1710355A4 /* Pods-Sketchpad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sketchpad.debug.xcconfig"; path = "Target Support Files/Pods-Sketchpad/Pods-Sketchpad.debug.xcconfig"; sourceTree = "<group>"; };
+		51B87D1C8C3D1DC4BC50B5E7 /* libPods-Sketchpad.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Sketchpad.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E10574382273AAAD0044E686 /* Sketchpad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sketchpad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E105743B2273AAAD0044E686 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E105743C2273AAAD0044E686 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -46,8 +50,10 @@
 		E17136CA2274C7C5005A9A3A /* SliderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SliderView.h; sourceTree = "<group>"; };
 		E17136CB2274C7C5005A9A3A /* SliderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SliderView.m; sourceTree = "<group>"; };
 		E17136CD2274D1BA005A9A3A /* SliderViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SliderViewDelegate.h; sourceTree = "<group>"; };
+		E1887D1322779BF400A438DA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E1FA85FF2277820E00E4B3C3 /* UIViewController+Extensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Extensions.h"; sourceTree = "<group>"; };
 		E1FA86002277820E00E4B3C3 /* UIViewController+Extensions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Extensions.m"; sourceTree = "<group>"; };
+		F7176AFD586EB7EB250F507E /* Pods-Sketchpad.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sketchpad.release.xcconfig"; path = "Target Support Files/Pods-Sketchpad/Pods-Sketchpad.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,15 +61,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EF3D3DDDB8CDC557C9F3BE5 /* libPods-Sketchpad.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A20864EF86E90BDEB87B5B4A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				51B87D1C8C3D1DC4BC50B5E7 /* libPods-Sketchpad.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CECAF7274EDC1E99B320EBCD /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				09E6B8C3BBE6F2D1710355A4 /* Pods-Sketchpad.debug.xcconfig */,
+				F7176AFD586EB7EB250F507E /* Pods-Sketchpad.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -74,6 +91,7 @@
 				E105743A2273AAAD0044E686 /* Sketchpad */,
 				E10574392273AAAD0044E686 /* Products */,
 				CECAF7274EDC1E99B320EBCD /* Pods */,
+				A20864EF86E90BDEB87B5B4A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,6 +115,7 @@
 				E12021442273E02500DC71A9 /* Extensions */,
 				E10574442273AAAE0044E686 /* Assets.xcassets */,
 				E10574492273AAAE0044E686 /* Info.plist */,
+				E1887D1322779BF400A438DA /* GoogleService-Info.plist */,
 			);
 			path = Sketchpad;
 			sourceTree = "<group>";
@@ -187,6 +206,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E105744E2273AAAE0044E686 /* Build configuration list for PBXNativeTarget "Sketchpad" */;
 			buildPhases = (
+				828D9174531D9E1E122CCB3B /* [CP] Check Pods Manifest.lock */,
 				E10574342273AAAD0044E686 /* Sources */,
 				E10574352273AAAD0044E686 /* Frameworks */,
 				E10574362273AAAD0044E686 /* Resources */,
@@ -239,12 +259,38 @@
 			files = (
 				E120213D2273B2D400DC71A9 /* ColorPickerView.xib in Resources */,
 				E10574482273AAAE0044E686 /* LaunchScreen.storyboard in Resources */,
+				E1887D1422779BF500A438DA /* GoogleService-Info.plist in Resources */,
 				E10574452273AAAE0044E686 /* Assets.xcassets in Resources */,
 				E10574432273AAAD0044E686 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		828D9174531D9E1E122CCB3B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Sketchpad-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E10574342273AAAD0044E686 /* Sources */ = {
@@ -399,6 +445,7 @@
 		};
 		E105744F2273AAAE0044E686 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 09E6B8C3BBE6F2D1710355A4 /* Pods-Sketchpad.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -410,7 +457,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = iOSPlayground.Sketchpad;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iOSPlayground.Sketchpad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -419,6 +466,7 @@
 		};
 		E10574502273AAAE0044E686 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F7176AFD586EB7EB250F507E /* Pods-Sketchpad.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -430,7 +478,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = iOSPlayground.Sketchpad;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iOSPlayground.Sketchpad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
