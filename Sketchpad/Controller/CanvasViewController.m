@@ -15,6 +15,8 @@
 #import <Accounts/Accounts.h>
 #import <MessageUI/MessageUI.h>
 #import "FirebaseManager.h"
+#import <SVProgressHUD.h>
+
 
 @interface CanvasViewController () <UINavigationControllerDelegate, MFMailComposeViewControllerDelegate, ColorPickerDelegate> {
     CGPoint lastPoint;
@@ -46,7 +48,6 @@
 - (IBAction)saveTapped:(id)sender {
     if (!self.mainCanvas.image) return;
     UIImage *saveImage = [self getDrawing];
-    [self saveToCloud:saveImage];
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Save to where?" message: @"Where would you like to save this?" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *toPhotos = [UIAlertAction actionWithTitle:@"Photo Library" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         UIImageWriteToSavedPhotosAlbum(saveImage, self,@selector(image:didFinishSavingWithError:contextInfo:), nil);
@@ -59,9 +60,14 @@
         [self sendMail:saveImage];
     }];
     
+    UIAlertAction *toCloud = [UIAlertAction actionWithTitle:@"Cloud" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self saveToCloud:saveImage];
+    }];
+    
     [alert addAction:toPhotos];
     [alert addAction:toTwitter];
     [alert addAction:toMail];
+    [alert addAction:toCloud];
     [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel
                                             handler:^(UIAlertAction * action) {}]];
     [self presentViewController:alert animated:YES completion:nil];
@@ -108,8 +114,26 @@
 }
 
 - (void)saveToCloud:(UIImage *)image {
-    FirebaseManager *fb = [FirebaseManager shared];
-    [fb saveImage:@"testuser" image:image];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Your name please." message: @"Please give your desired username to save this under or leave blank to be Anonymous." preferredStyle:UIAlertControllerStyleAlert];
+    [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        [textField setPlaceholder:@"Name"];
+    }];
+    [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel
+                                            handler:^(UIAlertAction * action) {}]];
+    
+    [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        NSString *name = alert.textFields.firstObject.text;
+        name = (!name || [name length] == 0 )? @"Anonynmous" : name;
+        [SVProgressHUD show];
+        [FirebaseManager.shared saveImage:name image:image completion:^(NSError * _Nullable error) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [SVProgressHUD dismiss];
+                if (error) [self showAlert:@"Error" message:[error localizedDescription]];
+                else [self showAlert:@"Success" message:@"Image successfully saved"];
+            });
+        }];
+    }]];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 #pragma MARK: - Drawing
