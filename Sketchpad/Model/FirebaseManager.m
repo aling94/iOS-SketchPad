@@ -56,12 +56,15 @@
     }];
 }
 
-- (void)getPosts:(void(^)(NSArray<SketchPost *> *))completion {
+- (void)getPosts:(void(^)(NSMutableArray<SketchPost *> *))completion {
     FIRDatabaseReference *ref = [self.dbRef child:@"Posts"];
     [ref observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         NSDictionary *postList = snapshot.value;
-        
         NSMutableArray<SketchPost *> *posts = NSMutableArray.new;
+        if ([postList isKindOfClass:[NSNull class]]) {
+            completion(posts);
+            return;
+        }
         for (NSString *pid in postList) {
             NSDictionary *info = postList[pid];
             SketchPost *post = [SketchPost.alloc initWithInfo:info];
@@ -75,10 +78,9 @@
 - (void)saveImage:(NSString *)user image:(UIImage *)image completion:(void(^)(NSError * _Nullable))completion {
     NSData *data = UIImageJPEGRepresentation(image, 1.0);
     NSString *pid = [self.dbRef child:@"Posts"].childByAutoId.key;
-    NSString *filename = [NSString stringWithFormat:@"%f_@id:%@_@user:%@", [NSDate.date timeIntervalSince1970], pid, user];
     FIRStorageMetadata *meta = [FIRStorageMetadata new];
     [meta setContentType:@"Image/jpeg"];
-    FIRStorageReference *ref = [[self.storeRef child:@"Posts"] child:filename];
+    FIRStorageReference *ref = [[self.storeRef child:@"Posts"] child:pid];
     
     [ref putData:data metadata:meta completion:^(FIRStorageMetadata * _Nullable metadata, NSError * _Nullable error) {
         if (error) {

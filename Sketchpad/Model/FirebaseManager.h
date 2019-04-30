@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface FirebaseManager : NSObject
 + (instancetype)shared;
 - (void)saveImage:(NSString *)user image:(UIImage *)image completion:(void(^)(NSError * _Nullable))completion;
-- (void)getPosts:(void(^)(NSArray<SketchPost *> *))completion;
+- (void)getPosts:(void(^)(NSMutableArray<SketchPost *> *))completion;
 @end
 
 NS_ASSUME_NONNULL_END
