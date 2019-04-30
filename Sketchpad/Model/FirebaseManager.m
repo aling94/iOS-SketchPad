@@ -46,7 +46,7 @@
     NSDictionary *info;
     info = @{ @"user": user,
               @"pid" : pid,
-              @"time:" : time,
+              @"time" : time,
               @"url": imageURL
               };
     
@@ -61,7 +61,7 @@
     [ref observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         NSDictionary *postList = snapshot.value;
         
-        NSMutableArray *posts = NSMutableArray.new;
+        NSMutableArray<SketchPost *> *posts = NSMutableArray.new;
         for (NSString *pid in postList) {
             NSDictionary *info = postList[pid];
             SketchPost *post = [SketchPost.alloc initWithInfo:info];

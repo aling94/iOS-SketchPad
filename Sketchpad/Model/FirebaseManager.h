@@ -10,6 +10,7 @@
 #import <Firebase.h>
 #import <FirebaseStorage.h>
 #import <FirebaseDatabase.h>
+@class SketchPost;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -17,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)shared;
 - (void)savePost:(NSString *)user imageURL:(NSString *)imageURL;
 - (void)saveImage:(NSString *)user image:(UIImage *)image;
+- (void)getPosts:(void(^)(NSArray<SketchPost *> *))completion;
 @end
 
 NS_ASSUME_NONNULL_END
