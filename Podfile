@@ -8,6 +8,7 @@ target 'Sketchpad' do
   pod 'Firebase/Storage'
   pod 'Firebase/Database'
 
-  # Pods for Sketchpad
+  pod 'SDWebImage'
+  pod 'SVProgressHUD'
 
 end
