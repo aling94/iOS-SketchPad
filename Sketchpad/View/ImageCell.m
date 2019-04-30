@@ -17,6 +17,24 @@
 @end
 
 @implementation ImageCell
+
+- (void)setSelected:(BOOL)selected {
+    [super setSelected:selected];
+    if (selected) [self selectCell];
+    else [self unselectCell];
+}
+
+
+- (void)selectCell {
+    self.imageView.layer.borderWidth = 2;
+    self.imageView.layer.borderColor = UIColor.blackColor.CGColor;
+}
+
+- (void)unselectCell {
+    self.imageView.layer.borderWidth = 0;
+    self.imageView.layer.borderColor = UIColor.clearColor.CGColor;
+}
+
 - (void)setData:(SketchPost *)post {
     NSString *url = post.url;
     [self setImage:url];
