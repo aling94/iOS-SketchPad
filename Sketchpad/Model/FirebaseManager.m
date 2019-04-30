@@ -41,7 +41,7 @@
    
 }
 
-- (void)savePost:(NSString *)pid user:(NSString *)user imageURL:(NSString *)imageURL {
+- (void)savePost:(NSString *)pid user:(NSString *)user imageURL:(NSString *)imageURL completion:(void(^)(NSError * _Nullable))completion {
     NSNumber *time = [NSNumber.alloc initWithDouble:[NSDate.date timeIntervalSince1970]];
     NSDictionary *info;
     info = @{ @"user": user,
@@ -52,7 +52,7 @@
     
     FIRDatabaseReference *ref = [[self.dbRef child:@"Posts"] child:pid];
     [ref setValue:info withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
-        
+        completion(error);
     }];
 }
 
@@ -72,7 +72,7 @@
 }
 
 
-- (void)saveImage:(NSString *)user image:(UIImage *)image {
+- (void)saveImage:(NSString *)user image:(UIImage *)image completion:(void(^)(NSError * _Nullable))completion {
     NSData *data = UIImageJPEGRepresentation(image, 1.0);
     NSString *pid = [self.dbRef child:@"Posts"].childByAutoId.key;
     NSString *filename = [NSString stringWithFormat:@"%f_@id:%@_@user:%@", [NSDate.date timeIntervalSince1970], pid, user];
@@ -81,8 +81,13 @@
     FIRStorageReference *ref = [[self.storeRef child:@"Posts"] child:filename];
     
     [ref putData:data metadata:meta completion:^(FIRStorageMetadata * _Nullable metadata, NSError * _Nullable error) {
+        if (error) {
+            completion(error);
+            return;
+        }
         [ref downloadURLWithCompletion:^(NSURL * _Nullable URL, NSError * _Nullable error) {
-            [self savePost:pid user:user imageURL:URL.absoluteString];
+            if (error) completion(error);
+            else [self savePost:pid user:user imageURL:URL.absoluteString completion:completion];
         }];
     }];
     
