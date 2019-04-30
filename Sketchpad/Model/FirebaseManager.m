@@ -35,6 +35,12 @@
     return _shared;
 }
 
+- (void)addPostToUser:(NSString *)user imageURL:(NSString *)url {
+    FIRDatabaseReference *ref = [[self.dbRef child:@"Users"] child:user];
+    
+   
+}
+
 - (void)savePost:(NSString *)pid user:(NSString *)user imageURL:(NSString *)imageURL {
     NSNumber *time = [NSNumber.alloc initWithDouble:[NSDate.date timeIntervalSince1970]];
     NSDictionary *info;
@@ -50,7 +56,7 @@
     }];
 }
 
-- (void)getPosts {
+- (void)getPosts:(void(^)(NSArray<SketchPost *> *))completion {
     FIRDatabaseReference *ref = [self.dbRef child:@"Posts"];
     [ref observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         NSDictionary *postList = snapshot.value;
@@ -61,10 +67,8 @@
             SketchPost *post = [SketchPost.alloc initWithInfo:info];
             [posts addObject:post];
         }
+        completion(posts);
     }];
-    
-    
-    
 }
 
 
