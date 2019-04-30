@@ -16,6 +16,7 @@
 #import <MessageUI/MessageUI.h>
 #import "FirebaseManager.h"
 #import <SVProgressHUD.h>
+#import <AVFoundation/AVFoundation.h>
 
 
 @interface CanvasViewController () <UINavigationControllerDelegate, MFMailComposeViewControllerDelegate, ColorPickerDelegate> {
@@ -150,7 +151,8 @@
     CGPoint currentPoint = [touch locationInView:self.tempCanvas];
     
     [self prepareToDraw:1.0];
-    CGContextSetBlendMode(UIGraphicsGetCurrentContext(),kCGBlendModeNormal);
+    CGBlendMode mode = bm.erase? kCGBlendModeClear : kCGBlendModeNormal;
+    CGContextSetBlendMode(UIGraphicsGetCurrentContext(), mode);
     [self drawLine:lastPoint end:currentPoint];
     [self.tempCanvas setAlpha: bm.opacity];
     [self endDrawing];
@@ -173,8 +175,9 @@
 #pragma MARK: - Drawing helpers
 
 - (void)prepareToDraw:(CGFloat)alpha {
+    CGRect scaled = AVMakeRectWithAspectRatioInsideRect(self.tempCanvas.image.size, self.tempCanvas.bounds);
     UIGraphicsBeginImageContext(canvasSize);
-    [self.tempCanvas.image drawInRect:CGRectMake(0, 0, canvasSize.width, canvasSize.height)];
+    [self.tempCanvas.image drawInRect:scaled];
     CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
     CGContextSetLineWidth(UIGraphicsGetCurrentContext(), bm.brush);
     CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), bm.red, bm.green, bm.blue, alpha);
@@ -192,9 +195,12 @@
 }
 
 - (void)transferToMainCanvas {
+    
     UIGraphicsBeginImageContext(canvasSize);
     [self.mainCanvas.image drawInRect:CGRectMake(0, 0, canvasSize.width, canvasSize.height) blendMode:kCGBlendModeNormal alpha:1.0];
     [self.tempCanvas.image drawInRect:CGRectMake(0, 0, canvasSize.width, canvasSize.height) blendMode:kCGBlendModeNormal alpha:bm.opacity];
+    
+    [self.mainCanvas setContentMode:UIViewContentModeScaleAspectFit];
     self.mainCanvas.image = UIGraphicsGetImageFromCurrentImageContext();
     self.tempCanvas.image = nil;
     UIGraphicsEndImageContext();
