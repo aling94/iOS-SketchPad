@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (assign, nonatomic) CGFloat blue;
 @property (assign, nonatomic) CGFloat brush;
 @property (assign, nonatomic) CGFloat opacity;
+@property (assign, nonatomic) BOOL erase;
 
 + (instancetype)shared;
 - (void)setColor:(UIColor *)color;

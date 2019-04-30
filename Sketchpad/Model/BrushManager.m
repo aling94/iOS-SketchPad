@@ -20,6 +20,11 @@
 }
 
 - (void)setColor:(UIColor *)color {
+    if (color == UIColor.clearColor) {
+        self.erase = YES;
+        return;
+    }
+    self.erase = NO;
     CGColorRef cgColor = [color CGColor];
     NSInteger numComponents = CGColorGetNumberOfComponents(cgColor);
     const CGFloat *comps = CGColorGetComponents(cgColor);
@@ -33,6 +38,7 @@
 }
 
 - (CGFloat)scaleAndBoundInt:(NSInteger)val {
+    self.erase = NO;
     return fmin(fmax(0.0, val / 255.0), 1.0);
 }
 
@@ -49,6 +55,7 @@
 }
 
 - (void)setAlpha:(CGFloat)alpha {
+    self.erase = NO;
     self.opacity = fmin(fmax(0.0, alpha), 1.0);
 }
 @end
