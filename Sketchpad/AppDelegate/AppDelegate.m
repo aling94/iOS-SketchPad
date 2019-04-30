@@ -8,7 +8,13 @@
 
 #import "AppDelegate.h"
 #import "BrushManager.h"
-@interface AppDelegate ()
+#import <Firebase.h>
+#import <FirebaseStorage.h>
+#import "FirebaseManager.h"
+
+@interface AppDelegate () {
+    
+}
 
 @end
 
@@ -16,7 +22,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    [FIRApp configure];
     [BrushManager.shared setColor:UIColor.blackColor];
     [BrushManager.shared setAlpha:1];
     [BrushManager.shared setBrush:5];

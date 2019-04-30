@@ -14,6 +14,7 @@
 #import <Social/Social.h>
 #import <Accounts/Accounts.h>
 #import <MessageUI/MessageUI.h>
+#import "FirebaseManager.h"
 
 @interface CanvasViewController () <UINavigationControllerDelegate, MFMailComposeViewControllerDelegate, ColorPickerDelegate> {
     CGPoint lastPoint;
@@ -45,6 +46,7 @@
 - (IBAction)saveTapped:(id)sender {
     if (!self.mainCanvas.image) return;
     UIImage *saveImage = [self getDrawing];
+    [self saveToCloud:saveImage];
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Save to where?" message: @"Where would you like to save this?" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *toPhotos = [UIAlertAction actionWithTitle:@"Photo Library" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         UIImageWriteToSavedPhotosAlbum(saveImage, self,@selector(image:didFinishSavingWithError:contextInfo:), nil);
@@ -103,6 +105,11 @@
     [mailVC addAttachmentData:imageData mimeType:@"image/jpeg" fileName:@"sketch.jpeg"];
     [mailVC setSubject:@"iOS-Sketchpad drawing"];
     [self presentViewController:mailVC animated:YES completion:nil];
+}
+
+- (void)saveToCloud:(UIImage *)image {
+    FirebaseManager *fb = [FirebaseManager shared];
+    [fb saveImage:@"testuser" image:image];
 }
 
 #pragma MARK: - Drawing

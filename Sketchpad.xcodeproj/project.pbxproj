@@ -21,6 +21,8 @@
 		E17136C92274B940005A9A3A /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E17136C82274B940005A9A3A /* SettingsViewController.m */; };
 		E17136CC2274C7C5005A9A3A /* SliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E17136CB2274C7C5005A9A3A /* SliderView.m */; };
 		E1887D1422779BF500A438DA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1887D1322779BF400A438DA /* GoogleService-Info.plist */; };
+		E1887D172277B76500A438DA /* FirebaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E1887D162277B76500A438DA /* FirebaseManager.m */; };
+		E1887D1C2277D7F600A438DA /* SketchPost.m in Sources */ = {isa = PBXBuildFile; fileRef = E1887D1B2277D7F600A438DA /* SketchPost.m */; };
 		E1FA86012277820E00E4B3C3 /* UIViewController+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E1FA86002277820E00E4B3C3 /* UIViewController+Extensions.m */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +53,10 @@
 		E17136CB2274C7C5005A9A3A /* SliderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SliderView.m; sourceTree = "<group>"; };
 		E17136CD2274D1BA005A9A3A /* SliderViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SliderViewDelegate.h; sourceTree = "<group>"; };
 		E1887D1322779BF400A438DA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E1887D152277B76500A438DA /* FirebaseManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirebaseManager.h; sourceTree = "<group>"; };
+		E1887D162277B76500A438DA /* FirebaseManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirebaseManager.m; sourceTree = "<group>"; };
+		E1887D1A2277D7F600A438DA /* SketchPost.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SketchPost.h; sourceTree = "<group>"; };
+		E1887D1B2277D7F600A438DA /* SketchPost.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SketchPost.m; sourceTree = "<group>"; };
 		E1FA85FF2277820E00E4B3C3 /* UIViewController+Extensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Extensions.h"; sourceTree = "<group>"; };
 		E1FA86002277820E00E4B3C3 /* UIViewController+Extensions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Extensions.m"; sourceTree = "<group>"; };
 		F7176AFD586EB7EB250F507E /* Pods-Sketchpad.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sketchpad.release.xcconfig"; path = "Target Support Files/Pods-Sketchpad/Pods-Sketchpad.release.xcconfig"; sourceTree = "<group>"; };
@@ -174,6 +180,10 @@
 			children = (
 				E120214D2274054300DC71A9 /* BrushManager.h */,
 				E120214E2274054300DC71A9 /* BrushManager.m */,
+				E1887D152277B76500A438DA /* FirebaseManager.h */,
+				E1887D162277B76500A438DA /* FirebaseManager.m */,
+				E1887D1A2277D7F600A438DA /* SketchPost.h */,
+				E1887D1B2277D7F600A438DA /* SketchPost.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -299,8 +309,10 @@
 			files = (
 				E1FA86012277820E00E4B3C3 /* UIViewController+Extensions.m in Sources */,
 				E120214F2274054300DC71A9 /* BrushManager.m in Sources */,
+				E1887D172277B76500A438DA /* FirebaseManager.m in Sources */,
 				E12021432273B3CB00DC71A9 /* ColorPickerView.m in Sources */,
 				E17136C92274B940005A9A3A /* SettingsViewController.m in Sources */,
+				E1887D1C2277D7F600A438DA /* SketchPost.m in Sources */,
 				E17136CC2274C7C5005A9A3A /* SliderView.m in Sources */,
 				E120214B2273F4DC00DC71A9 /* CanvasViewController.m in Sources */,
 				E105744B2273AAAE0044E686 /* main.m in Sources */,
