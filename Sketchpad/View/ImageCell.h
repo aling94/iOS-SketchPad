@@ -13,7 +13,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ImageCell : UICollectionViewCell
 - (void)setData:(SketchPost *)post;
-- (void)setImage:(NSString *)url;
 @end
 
 NS_ASSUME_NONNULL_END

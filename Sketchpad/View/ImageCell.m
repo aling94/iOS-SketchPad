@@ -8,6 +8,7 @@
 
 #import "ImageCell.h"
 #import "SketchPost.h"
+#import <SDWebImage/SDWebImage.h>
 
 @interface ImageCell()
 
@@ -22,7 +23,8 @@
 }
 
 
-- (void)setImage:(NSString *)url {
-    
+- (void)setImage:(NSString *)urlString {
+    NSURL *url = [NSURL URLWithString:urlString];
+    [self.imageView sd_setImageWithURL:url];
 }
 @end
