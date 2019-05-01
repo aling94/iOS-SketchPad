@@ -24,7 +24,15 @@
             double lon = [info[@"lon"] doubleValue];
             self.coords = CLLocationCoordinate2DMake(lat, lon);
         }
+        NSLog(@"%@", [self date:@"hh:mm:ss | dd MMM yyyy"]);
     }
     return self;
+}
+
+- (NSString *)date:(NSString *)format {
+    NSDateFormatter *formatter = [NSDateFormatter new];
+    formatter.dateFormat = format;
+    NSDate *date = [NSDate.new initWithTimeIntervalSince1970: self.time];
+    return [formatter stringFromDate:date];
 }
 @end

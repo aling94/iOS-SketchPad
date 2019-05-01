@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic, nullable) NSString *location;
 
 - (instancetype)initWithInfo:(NSDictionary *)info;
+- (NSString *)date:(NSString *)format;
 @end
 
 NS_ASSUME_NONNULL_END
