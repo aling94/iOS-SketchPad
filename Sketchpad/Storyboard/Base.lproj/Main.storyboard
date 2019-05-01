@@ -422,7 +422,7 @@
                         <viewLayoutGuide key="safeArea" id="AxJ-6z-uwH"/>
                     </view>
                     <navigationItem key="navigationItem" id="cdk-UU-56K">
-                        <barButtonItem key="leftBarButtonItem" title="Reset" id="1oQ-uI-gxt">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="1oQ-uI-gxt">
                             <connections>
                                 <action selector="resetTapped:" destination="aSj-34-Tz7" id="J5I-MO-rjP"/>
                             </connections>
