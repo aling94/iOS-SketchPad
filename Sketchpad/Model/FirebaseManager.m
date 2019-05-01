@@ -35,12 +35,6 @@
     return _shared;
 }
 
-- (void)addPostToUser:(NSString *)user imageURL:(NSString *)url {
-    FIRDatabaseReference *ref = [[self.dbRef child:@"Users"] child:user];
-    
-   
-}
-
 - (void)savePost:(NSString *)pid user:(NSString *)user imageURL:(NSString *)imageURL completion:(void(^)(NSError * _Nullable))completion {
     NSNumber *time = [NSNumber.alloc initWithDouble:[NSDate.date timeIntervalSince1970]];
     NSDictionary *info;
@@ -93,6 +87,23 @@
         }];
     }];
     
+}
+
+- (void)deleteImages:(NSArray<NSString *> *)pids {
+    for (NSString *pid in pids)
+        [self deleteImage:pid completion:^(NSError * _Nullable error) {
+            
+        }];
+}
+
+- (void)deleteImage:(NSString *)pid completion:(void(^)(NSError * _Nullable))completion {
+    FIRDatabaseReference *db = [[self.dbRef child:@"Posts"] child:pid];
+    FIRStorageReference *store = [[self.storeRef child:@"Posts"] child:pid];
+    [db removeValueWithCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
+        [store deleteWithCompletion:^(NSError * _Nullable error) {
+            completion(error);
+        }];
+    }];
 }
 
 @end
