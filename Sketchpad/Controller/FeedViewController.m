@@ -81,11 +81,21 @@
     }
 }
 
+- (void)showPostDetails:(UIButton *)sender {
+    SketchDetailViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SketchDetailViewController"];
+    vc.post = self.posts[sender.tag];
+    ImageCell *cell;
+    cell = (ImageCell *)[self.collection cellForItemAtIndexPath:[NSIndexPath indexPathWithIndex:sender.tag]];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     ImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     if (!cell) return UICollectionViewCell.new;
     SketchPost *post = self.posts[indexPath.row];
     [cell setData:post];
+    cell.infoBtn.tag = indexPath.item;
+    [cell.infoBtn addTarget:self action:@selector(showPostDetails:) forControlEvents:UIControlEventTouchUpInside];
     return cell;
 }
 

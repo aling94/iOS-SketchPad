@@ -12,6 +12,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ImageCell : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet UIButton *infoBtn;
+
 - (void)setData:(SketchPost *)post;
 @end
 

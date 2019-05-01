@@ -40,7 +40,6 @@
     [self setImage:url];
 }
 
-
 - (void)setImage:(NSString *)urlString {
     NSURL *url = [NSURL URLWithString:urlString];
     [self.imageView sd_setImageWithURL:url];

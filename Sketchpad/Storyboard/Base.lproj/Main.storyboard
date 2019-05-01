@@ -393,16 +393,27 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NAU-AS-kda">
                                                     <rect key="frame" x="0.0" y="0.0" width="189" height="200"/>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gg3-WS-JOV">
+                                                    <rect key="frame" x="151" y="162" width="25" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="3OE-is-PAX"/>
+                                                        <constraint firstAttribute="width" constant="25" id="rij-fT-JxE"/>
+                                                    </constraints>
+                                                    <state key="normal" image="info"/>
+                                                </button>
                                             </subviews>
                                         </view>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="NAU-AS-kda" secondAttribute="bottom" id="C08-KZ-dzE"/>
                                             <constraint firstItem="NAU-AS-kda" firstAttribute="top" secondItem="1mf-ZL-Rfs" secondAttribute="top" id="MFQ-I5-zEw"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="Gg3-WS-JOV" secondAttribute="bottom" constant="5" id="Y1P-UV-p7V"/>
                                             <constraint firstAttribute="trailing" secondItem="NAU-AS-kda" secondAttribute="trailing" id="tK3-vY-ZXP"/>
                                             <constraint firstItem="NAU-AS-kda" firstAttribute="leading" secondItem="1mf-ZL-Rfs" secondAttribute="leading" id="w19-P3-Txc"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="Gg3-WS-JOV" secondAttribute="trailing" constant="5" id="xFk-gX-TIt"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="imageView" destination="NAU-AS-kda" id="hMq-Ch-sSd"/>
+                                            <outlet property="infoBtn" destination="Gg3-WS-JOV" id="pF0-S9-RwD"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -444,7 +455,7 @@
         <!--Sketch Detail View Controller-->
         <scene sceneID="QeY-YC-hTW">
             <objects>
-                <viewController id="86e-PJ-Hao" customClass="SketchDetailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SketchDetailViewController" id="86e-PJ-Hao" customClass="SketchDetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xnm-Pc-OUI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -545,6 +556,7 @@
     <resources>
         <image name="draw" width="25" height="25"/>
         <image name="feed" width="25" height="25"/>
+        <image name="info" width="25" height="25"/>
         <image name="save" width="25" height="25"/>
         <image name="settings" width="25" height="25"/>
         <image name="trash" width="26" height="26"/>
