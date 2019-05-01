@@ -158,8 +158,7 @@
 			children = (
 				E17136CE2274F5F0005A9A3A /* ColorPicker */,
 				E17136CF2274F5FB005A9A3A /* SliderView */,
-				E1297C5E2278A9330040364F /* ImageCell.h */,
-				E1297C5F2278A9330040364F /* ImageCell.m */,
+				E14DE78D22791D24002840BD /* ImageCell */,
 				E14DE78C227916D6002840BD /* ImagePicker */,
 			);
 			path = View;
@@ -209,6 +208,15 @@
 				E14DE78A227916D1002840BD /* ImagePicker.m */,
 			);
 			path = ImagePicker;
+			sourceTree = "<group>";
+		};
+		E14DE78D22791D24002840BD /* ImageCell */ = {
+			isa = PBXGroup;
+			children = (
+				E1297C5E2278A9330040364F /* ImageCell.h */,
+				E1297C5F2278A9330040364F /* ImageCell.m */,
+			);
+			path = ImageCell;
 			sourceTree = "<group>";
 		};
 		E17136CE2274F5F0005A9A3A /* ColorPicker */ = {
