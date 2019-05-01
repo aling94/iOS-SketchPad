@@ -11,8 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UIColor (Extensions)
-- (instancetype)initWithRGB:(NSInteger)red green:(NSInteger)green blue:(NSInteger)blue;
-- (instancetype)initWithRGB:(NSInteger)red green:(NSInteger)green blue:(NSInteger)blue alpha:(CGFloat)a;
++ (instancetype)initWithRGB:(NSInteger)red green:(NSInteger)green blue:(NSInteger)blue;
 + (instancetype)darkGreenColor;
 + (instancetype)lightGreenColor;
 + (instancetype)lightBlueColor;
