@@ -11,6 +11,7 @@
 #import <Firebase.h>
 #import <FirebaseStorage.h>
 #import "FirebaseManager.h"
+#import "LocationManager.h"
 
 @interface AppDelegate () {
     
@@ -22,6 +23,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [LocationManager.shared setupCoreLocation];
     [FIRApp configure];
     [BrushManager.shared setColor:UIColor.blackColor];
     [BrushManager.shared setAlpha:1];
