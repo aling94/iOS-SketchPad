@@ -8,6 +8,7 @@
 
 #import "SketchDetailViewController.h"
 #import "SketchPost.h"
+#import <SDWebImage.h>
 
 @interface SketchDetailViewController ()
 
@@ -23,17 +24,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self setupDetails];
 }
 
 - (void)setupDetails {
-    if (!self.post || !self.image) return;
-    self.imageView.image = self.image;
+    if (!self.post) return;
     self.creatorLabel.text = [NSString stringWithFormat:@"Posted by: %@", self.post.user];
-    self.dateLabel.text =  [NSString stringWithFormat:@"On: %@", [self.post date:@"hh:mm:ss | dd MMM yyyy"]];
+    self.dateLabel.text =  [NSString stringWithFormat:@"On: %@", [self.post date:@"dd MMM yyyy (hh:mm:ss)"]];
     if (self.post.location)
         self.locationLabel.text = [NSString stringWithFormat:@"From: %@", self.post.location];
-    
+    NSURL *url = [NSURL URLWithString:self.post.url];
+    [self.imageView sd_setImageWithURL:url];
 }
 
 @end

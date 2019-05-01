@@ -13,7 +13,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SketchDetailViewController : UIViewController
 @property (strong, nonatomic, nullable) SketchPost *post;
-@property (strong, nonatomic, nullable) UIImage *image;
 @end
 
 NS_ASSUME_NONNULL_END
