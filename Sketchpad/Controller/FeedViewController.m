@@ -11,9 +11,11 @@
 #import "SketchPost.h"
 #import "ImageCell.h"
 #import <SVProgressHUD.h>
+#import "SketchDetailViewController.h"
 
 @interface FeedViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UICollectionView *collection;
+@property (assign, nonatomic) BOOL isEditing;
 @property (strong, nonatomic) NSMutableArray<NSIndexPath *> *selectedItems;
 @property (strong, nonatomic) NSMutableArray<SketchPost *> *posts;
 
@@ -23,18 +25,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = @"Recent Sketches";
+    self.isEditing = NO;
     self.posts = [NSMutableArray new];
     self.selectedItems = [NSMutableArray new];
-    self.collection.allowsSelection = NO;
-    self.collection.allowsMultipleSelection = NO;
-    self.navigationItem.title = @"Recent Sketches";
+    [self setupCollection];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [FirebaseManager.shared getPosts:^(NSMutableArray<SketchPost *> * _Nonnull posts) {
-      
-        
         self.posts = posts;
         [self.posts sortUsingComparator:^NSComparisonResult(SketchPost *  _Nonnull p1, SketchPost *  _Nonnull p2) {
             return p1.time < p2.time;
@@ -43,6 +43,11 @@
             [self.collection reloadData];
         });
     }];
+}
+
+- (void)setupCollection {
+    self.collection.allowsSelection = self.isEditing;
+    self.collection.allowsMultipleSelection = self.isEditing;
 }
 
 - (IBAction)deleteTapped:(id)sender {
@@ -59,11 +64,15 @@
 }
 
 - (IBAction)resetTapped:(UIBarButtonItem *)sender {
-    BOOL wasEditing = self.collection.allowsSelection;
-    [sender setTitle:wasEditing? @"Edit" : @"Done"];
-    self.collection.allowsSelection = !wasEditing;
-    self.collection.allowsMultipleSelection = !wasEditing;
-    if (wasEditing) {
+    self.isEditing = !self.isEditing;
+    [sender setTitle:self.isEditing? @"Done" : @"Edit"];
+    [self setCollectionEditMode:self.isEditing];
+}
+
+- (void)setCollectionEditMode:(BOOL)editing {
+    self.collection.allowsSelection = editing;
+    self.collection.allowsMultipleSelection = editing;
+    if (!editing) {
         for (NSIndexPath *indexPath in self.selectedItems) {
             [self.collection deselectItemAtIndexPath:indexPath animated:YES];
         }
