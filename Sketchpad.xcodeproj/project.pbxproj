@@ -20,6 +20,7 @@
 		E120214F2274054300DC71A9 /* BrushManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E120214E2274054300DC71A9 /* BrushManager.m */; };
 		E1297C5D2278A5F70040364F /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1297C5C2278A5F70040364F /* FeedViewController.m */; };
 		E1297C602278A9330040364F /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E1297C5F2278A9330040364F /* ImageCell.m */; };
+		E14DE78B227916D1002840BD /* ImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = E14DE78A227916D1002840BD /* ImagePicker.m */; };
 		E17136C92274B940005A9A3A /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E17136C82274B940005A9A3A /* SettingsViewController.m */; };
 		E17136CC2274C7C5005A9A3A /* SliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E17136CB2274C7C5005A9A3A /* SliderView.m */; };
 		E1887D1422779BF500A438DA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1887D1322779BF400A438DA /* GoogleService-Info.plist */; };
@@ -53,6 +54,8 @@
 		E1297C5C2278A5F70040364F /* FeedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedViewController.m; sourceTree = "<group>"; };
 		E1297C5E2278A9330040364F /* ImageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageCell.h; sourceTree = "<group>"; };
 		E1297C5F2278A9330040364F /* ImageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageCell.m; sourceTree = "<group>"; };
+		E14DE789227916D1002840BD /* ImagePicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImagePicker.h; sourceTree = "<group>"; };
+		E14DE78A227916D1002840BD /* ImagePicker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImagePicker.m; sourceTree = "<group>"; };
 		E17136C72274B940005A9A3A /* SettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		E17136C82274B940005A9A3A /* SettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		E17136CA2274C7C5005A9A3A /* SliderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SliderView.h; sourceTree = "<group>"; };
@@ -157,6 +160,7 @@
 				E17136CF2274F5FB005A9A3A /* SliderView */,
 				E1297C5E2278A9330040364F /* ImageCell.h */,
 				E1297C5F2278A9330040364F /* ImageCell.m */,
+				E14DE78C227916D6002840BD /* ImagePicker */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -196,6 +200,15 @@
 				E1887D1B2277D7F600A438DA /* SketchPost.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		E14DE78C227916D6002840BD /* ImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				E14DE789227916D1002840BD /* ImagePicker.h */,
+				E14DE78A227916D1002840BD /* ImagePicker.m */,
+			);
+			path = ImagePicker;
 			sourceTree = "<group>";
 		};
 		E17136CE2274F5F0005A9A3A /* ColorPicker */ = {
@@ -353,6 +366,7 @@
 				E1297C602278A9330040364F /* ImageCell.m in Sources */,
 				E1297C5D2278A5F70040364F /* FeedViewController.m in Sources */,
 				E12021472273E05E00DC71A9 /* UIColor+Extensions.m in Sources */,
+				E14DE78B227916D1002840BD /* ImagePicker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
