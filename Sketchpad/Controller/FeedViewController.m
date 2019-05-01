@@ -25,8 +25,8 @@
     [super viewDidLoad];
     self.posts = [NSMutableArray new];
     self.selectedItems = [NSMutableArray new];
-    self.collection.allowsSelection = YES;
-    self.collection.allowsMultipleSelection = YES;
+    self.collection.allowsSelection = NO;
+    self.collection.allowsMultipleSelection = NO;
     self.navigationItem.title = @"Recent Sketches";
 }
 
@@ -47,19 +47,28 @@
 
 - (IBAction)deleteTapped:(id)sender {
     NSMutableIndexSet *indices = [NSMutableIndexSet new];
+    NSMutableArray *pids = [NSMutableArray new];
     for (NSIndexPath *idp in self.selectedItems) {
         [indices addIndex:idp.item];
+        [pids addObject:self.posts[idp.item].pid];
     }
     [self.posts removeObjectsAtIndexes:indices];
     [self.collection deleteItemsAtIndexPaths:self.selectedItems];
+    [FirebaseManager.shared deleteImages:pids];
     [self.selectedItems removeAllObjects];
 }
 
-- (IBAction)resetTapped:(id)sender {
-    for (NSIndexPath *indexPath in self.selectedItems) {
-        [self.collection deselectItemAtIndexPath:indexPath animated:YES];
+- (IBAction)resetTapped:(UIBarButtonItem *)sender {
+    BOOL wasEditing = self.collection.allowsSelection;
+    [sender setTitle:wasEditing? @"Edit" : @"Done"];
+    self.collection.allowsSelection = !wasEditing;
+    self.collection.allowsMultipleSelection = !wasEditing;
+    if (wasEditing) {
+        for (NSIndexPath *indexPath in self.selectedItems) {
+            [self.collection deselectItemAtIndexPath:indexPath animated:YES];
+        }
+        [self.selectedItems removeAllObjects];
     }
-    [self.selectedItems removeAllObjects];
 }
 
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
@@ -77,19 +86,17 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [self.selectedItems addObject:indexPath];
-    NSLog(@"%@", [self selectedItems]);
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
     [self.selectedItems removeObject:indexPath];
-    NSLog(@"%@", [self selectedItems]);
 }
 
 
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     CGFloat size = collectionView.bounds.size.width / 2;
-    return CGSizeMake(size, size + 25);
+    return CGSizeMake(size - 20, size + 25);
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
@@ -97,7 +104,7 @@
 }
 
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsZero;
+    return UIEdgeInsetsMake(10, 10, 0, 10);
 }
 
 -(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
