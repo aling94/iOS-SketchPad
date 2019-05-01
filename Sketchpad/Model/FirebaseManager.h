@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)shared;
 - (void)saveImage:(NSString *)user image:(UIImage *)image completion:(void(^)(NSError * _Nullable))completion;
 - (void)getPosts:(void(^)(NSMutableArray<SketchPost *> *))completion;
+- (void)deleteImages:(NSArray<NSString *> *)pids;
 @end
 
 NS_ASSUME_NONNULL_END

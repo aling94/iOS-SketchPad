@@ -17,6 +17,13 @@
         self.pid = info[@"pid"];
         self.time = [info[@"time"] doubleValue];
         self.url = info[@"url"];
+        self.location = info[@"location"];
+        self.coords = CLLocationCoordinate2DMake(0, 0);
+        if (self.location) {
+            double lat = [info[@"lat"] doubleValue];
+            double lon = [info[@"lon"] doubleValue];
+            self.coords = CLLocationCoordinate2DMake(lat, lon);
+        }
     }
     return self;
 }

@@ -6,7 +6,7 @@
 //  Copyright © 2019 iOSPlayground. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSString *pid;
 @property (strong, nonatomic) NSString *url;
 @property (assign, nonatomic) NSTimeInterval time;
+@property (assign, nonatomic) CLLocationCoordinate2D coords;
+@property (strong, nonatomic, nullable) NSString *location;
 
 - (instancetype)initWithInfo:(NSDictionary *)info;
 @end

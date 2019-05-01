@@ -8,8 +8,9 @@
 
 #import "FirebaseManager.h"
 #import "SketchPost.h"
+#import "LocationManager.h"
 
-@interface FirebaseManager()
+@interface FirebaseManager ()
 
 @property (strong, nonatomic) FIRStorageReference *storeRef;
 @property (strong, nonatomic) FIRDatabaseReference *dbRef;
@@ -36,13 +37,20 @@
 }
 
 - (void)savePost:(NSString *)pid user:(NSString *)user imageURL:(NSString *)imageURL completion:(void(^)(NSError * _Nullable))completion {
-    NSNumber *time = [NSNumber.alloc initWithDouble:[NSDate.date timeIntervalSince1970]];
-    NSDictionary *info;
-    info = @{ @"user": user,
-              @"pid" : pid,
-              @"time" : time,
-              @"url": imageURL
-              };
+    NSNumber *time = [NSNumber numberWithDouble:[NSDate.date timeIntervalSince1970]];
+    NSMutableDictionary *info = [NSMutableDictionary dictionaryWithDictionary: @{ @"user": user,
+                                                                                  @"pid" : pid,
+                                                                                  @"time" : time,
+                                                                                  @"url": imageURL,
+                                                                                  }];
+    LocationManager *locMng = LocationManager.shared;
+    
+    if (locMng.currentLocation && locMng.locationName) {
+        CLLocationCoordinate2D coords = locMng.currentLocation.coordinate;
+        [info setObject:[NSNumber numberWithDouble:coords.latitude] forKey:@"lat"];
+        [info setObject:[NSNumber numberWithDouble:coords.longitude] forKey:@"lon"];
+        [info setObject:locMng.locationName forKey:@"location"];
+    }
     
     FIRDatabaseReference *ref = [[self.dbRef child:@"Posts"] child:pid];
     [ref setValue:info withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
@@ -92,7 +100,7 @@
 - (void)deleteImages:(NSArray<NSString *> *)pids {
     for (NSString *pid in pids)
         [self deleteImage:pid completion:^(NSError * _Nullable error) {
-            
+            if (error) NSLog(@"%@", error);
         }];
 }
 
