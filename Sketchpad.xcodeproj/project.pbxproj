@@ -13,6 +13,7 @@
 		E10574452273AAAE0044E686 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E10574442273AAAE0044E686 /* Assets.xcassets */; };
 		E10574482273AAAE0044E686 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E10574462273AAAE0044E686 /* LaunchScreen.storyboard */; };
 		E105744B2273AAAE0044E686 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E105744A2273AAAE0044E686 /* main.m */; };
+		E1188D872279E8F800BEBC1A /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E1188D862279E8F800BEBC1A /* LocationManager.m */; };
 		E120213D2273B2D400DC71A9 /* ColorPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E120213C2273B2D400DC71A9 /* ColorPickerView.xib */; };
 		E12021432273B3CB00DC71A9 /* ColorPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E12021422273B3CB00DC71A9 /* ColorPickerView.m */; };
 		E12021472273E05E00DC71A9 /* UIColor+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E12021462273E05E00DC71A9 /* UIColor+Extensions.m */; };
@@ -41,6 +42,8 @@
 		E10574472273AAAE0044E686 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E10574492273AAAE0044E686 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E105744A2273AAAE0044E686 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E1188D852279E8F800BEBC1A /* LocationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
+		E1188D862279E8F800BEBC1A /* LocationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
 		E120213C2273B2D400DC71A9 /* ColorPickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorPickerView.xib; sourceTree = "<group>"; };
 		E12021412273B3CB00DC71A9 /* ColorPickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorPickerView.h; sourceTree = "<group>"; };
 		E12021422273B3CB00DC71A9 /* ColorPickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColorPickerView.m; sourceTree = "<group>"; };
@@ -202,6 +205,8 @@
 				E1887D162277B76500A438DA /* FirebaseManager.m */,
 				E1887D1A2277D7F600A438DA /* SketchPost.h */,
 				E1887D1B2277D7F600A438DA /* SketchPost.m */,
+				E1188D852279E8F800BEBC1A /* LocationManager.h */,
+				E1188D862279E8F800BEBC1A /* LocationManager.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -366,6 +371,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1188D872279E8F800BEBC1A /* LocationManager.m in Sources */,
 				E1FA86012277820E00E4B3C3 /* UIViewController+Extensions.m in Sources */,
 				E120214F2274054300DC71A9 /* BrushManager.m in Sources */,
 				E1887D172277B76500A438DA /* FirebaseManager.m in Sources */,
