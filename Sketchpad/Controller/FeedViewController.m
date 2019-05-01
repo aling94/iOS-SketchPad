@@ -51,6 +51,7 @@
 }
 
 - (IBAction)deleteTapped:(id)sender {
+    if (!self.isEditing) return;
     NSMutableIndexSet *indices = [NSMutableIndexSet new];
     NSMutableArray *pids = [NSMutableArray new];
     for (NSIndexPath *idp in self.selectedItems) {
@@ -63,7 +64,7 @@
     [self.selectedItems removeAllObjects];
 }
 
-- (IBAction)resetTapped:(UIBarButtonItem *)sender {
+- (IBAction)editTapped:(UIBarButtonItem *)sender {
     self.isEditing = !self.isEditing;
     [sender setTitle:self.isEditing? @"Done" : @"Edit"];
     [self setCollectionEditMode:self.isEditing];
