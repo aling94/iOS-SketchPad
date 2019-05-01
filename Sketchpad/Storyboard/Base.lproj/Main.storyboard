@@ -49,7 +49,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="ps7-Fv-1j9">
-                        <barButtonItem key="leftBarButtonItem" title="Reset" id="OWx-MZ-uwF">
+                        <barButtonItem key="leftBarButtonItem" title="Clear" id="OWx-MZ-uwF">
                             <connections>
                                 <action selector="resetTapped:" destination="BYZ-38-t0r" id="mEZ-zR-zm3"/>
                             </connections>
