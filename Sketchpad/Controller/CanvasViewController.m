@@ -17,7 +17,7 @@
 #import "FirebaseManager.h"
 #import <SVProgressHUD.h>
 #import <AVFoundation/AVFoundation.h>
-
+#import "ImagePicker.h"
 
 @interface CanvasViewController () <UINavigationControllerDelegate, MFMailComposeViewControllerDelegate, ColorPickerDelegate> {
     CGPoint lastPoint;
@@ -46,25 +46,32 @@
     [self.mainCanvas setImage:nil];
 }
 
-- (IBAction)saveTapped:(id)sender {
+- (IBAction)menuTapped:(id)sender {
     if (!self.mainCanvas.image) return;
     UIImage *saveImage = [self getDrawing];
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Save to where?" message: @"Where would you like to save this?" preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *toPhotos = [UIAlertAction actionWithTitle:@"Photo Library" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"More options" message: @"What would you like to do?" preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *import = [UIAlertAction actionWithTitle:@"Import Image" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self promptUploadImage];
+    }];
+    
+    UIAlertAction *toPhotos = [UIAlertAction actionWithTitle:@"Save to Photo Library" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         UIImageWriteToSavedPhotosAlbum(saveImage, self,@selector(image:didFinishSavingWithError:contextInfo:), nil);
     }];
-    UIAlertAction *toTwitter = [UIAlertAction actionWithTitle:@"Twitter" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    
+    UIAlertAction *toTwitter = [UIAlertAction actionWithTitle:@"Post to Twitter" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [self twitterUpload:saveImage];
     }];
     
-    UIAlertAction *toMail = [UIAlertAction actionWithTitle:@"Email" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *toMail = [UIAlertAction actionWithTitle:@"Send as Email" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [self sendMail:saveImage];
     }];
     
-    UIAlertAction *toCloud = [UIAlertAction actionWithTitle:@"Cloud" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *toCloud = [UIAlertAction actionWithTitle:@"Upload to Sketch-Cloud" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [self saveToCloud:saveImage];
     }];
     
+    [alert addAction:import];
     [alert addAction:toPhotos];
     [alert addAction:toTwitter];
     [alert addAction:toMail];
@@ -72,6 +79,17 @@
     [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel
                                             handler:^(UIAlertAction * action) {}]];
     [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void)promptUploadImage {
+    ImagePicker *picker = ImagePicker.new;
+    __weak CanvasViewController *weakself = self;
+    picker.selectAction = ^(UIImage * _Nonnull image) {
+        [weakself.tempCanvas setImage:image];
+        [weakself.mainCanvas setImage:nil];
+    };
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    [self presentViewController:picker animated:YES completion:nil];
 }
 
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo

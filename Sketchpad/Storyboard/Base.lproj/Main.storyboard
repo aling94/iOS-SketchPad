@@ -54,9 +54,9 @@
                                 <action selector="resetTapped:" destination="BYZ-38-t0r" id="mEZ-zR-zm3"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="Evq-L8-BBL">
+                        <barButtonItem key="rightBarButtonItem" image="menu" id="Evq-L8-BBL">
                             <connections>
-                                <action selector="saveTapped:" destination="BYZ-38-t0r" id="I6f-b0-fCn"/>
+                                <action selector="menuTapped:" destination="BYZ-38-t0r" id="I6f-b0-fCn"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -475,6 +475,7 @@
     <resources>
         <image name="draw" width="25" height="25"/>
         <image name="feed" width="25" height="25"/>
+        <image name="menu" width="25" height="25"/>
         <image name="settings" width="25" height="25"/>
         <image name="trash" width="26" height="26"/>
     </resources>
