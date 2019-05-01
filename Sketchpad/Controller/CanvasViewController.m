@@ -46,32 +46,31 @@
     [self.mainCanvas setImage:nil];
 }
 
+- (IBAction)uploadImgTapped:(id)sender {
+    [self promptUploadImage];
+}
+
 - (IBAction)menuTapped:(id)sender {
     if (!self.mainCanvas.image) return;
     UIImage *saveImage = [self getDrawing];
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"More options" message: @"What would you like to do?" preferredStyle:UIAlertControllerStyleAlert];
-    
-    UIAlertAction *import = [UIAlertAction actionWithTitle:@"Import Image" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self promptUploadImage];
-    }];
-    
-    UIAlertAction *toPhotos = [UIAlertAction actionWithTitle:@"Save to Photo Library" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Save options" message: @"What would you like to do?" preferredStyle:UIAlertControllerStyleAlert];
+
+    UIAlertAction *toPhotos = [UIAlertAction makeAction:@"Save to Photo Library" action:^{
         UIImageWriteToSavedPhotosAlbum(saveImage, self,@selector(image:didFinishSavingWithError:contextInfo:), nil);
     }];
     
-    UIAlertAction *toTwitter = [UIAlertAction actionWithTitle:@"Post to Twitter" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *toTwitter = [UIAlertAction makeAction:@"Post to Twitter"  action:^{
         [self twitterUpload:saveImage];
     }];
     
-    UIAlertAction *toMail = [UIAlertAction actionWithTitle:@"Send as Email" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *toMail = [UIAlertAction makeAction:@"Send as Email" action:^{
         [self sendMail:saveImage];
     }];
     
-    UIAlertAction *toCloud = [UIAlertAction actionWithTitle:@"Upload to Sketch-Cloud" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *toCloud = [UIAlertAction makeAction:@"Upload to Sketch-Cloud" action:^{
         [self saveToCloud:saveImage];
     }];
     
-    [alert addAction:import];
     [alert addAction:toPhotos];
     [alert addAction:toTwitter];
     [alert addAction:toMail];
